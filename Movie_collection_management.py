@@ -12,7 +12,6 @@ app = FastAPI(
 )
 
 
-# for
 class Movie(BaseModel):
     id: int = Field(description="id фільму")
     title: str = Field(max_length=60, description="назва фільму")
@@ -20,7 +19,7 @@ class Movie(BaseModel):
     release_year: int = Field(description="рік випуску")
     rating: float = Field(ge=0, lt=10.1, description="оцінки")  # ge only for int
 
-    # @field_validator("release_year")
+    # @field_validator("release_year") # не можна порівняти int і date.year
     # def real_year(cls, release_year):
     #     if release_year > date.year:
     #         raise ValueError("Рік випуску фільма не може бути майбутнім!")
